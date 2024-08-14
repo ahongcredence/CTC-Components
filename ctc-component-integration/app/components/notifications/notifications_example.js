@@ -22,11 +22,11 @@ function Notification_Example() {
       setNotifications((prevNotifications) =>
         prevNotifications.filter(notification => notification.id !== newNotification.id)
       );
-    }, 3000);  // show notificatoins for 3 seconds
+    }, 3000);  
   };
 
   return (
-    <div className='flex flex-col'>
+    <div className='relative h-screen flex flex-col'>
       {notifications.map((notification) => (
         <CTC_Alert
           key={notification.id}
@@ -36,15 +36,26 @@ function Notification_Example() {
           link={notification.link}
         />
       ))}
-      <button className="usa-button usa-button--outline usa-focus" type="button" onClick={() => handleClick('info', "header", "sample message", "sample link")}>
+      <div className='flex flex-row items-center justify-center h-screen'>
+      <button 
+        className="usa-button usa-button--outline usa-focus" 
+        type="button" 
+        onClick={() => handleClick('info', "Info", "sample message", "sample link")}>
         Info
       </button>
-      <button className="usa-button usa-button--outline usa-focus" type="button" onClick={() => handleClick('error', "header", "sample message", "sample link")}>
+      <button 
+        className="usa-button usa-button--outline usa-focus" 
+        type="button" 
+        onClick={() => handleClick('error', "Error", "sample message", "sample link")}>
         Error
       </button>
-      <button className="usa-button usa-button--outline usa-focus" type="button" onClick={() => handleClick('warning', "header", "sample message", "sample link")}>
+      <button 
+        className="usa-button usa-button--outline usa-focus" 
+        type="button" 
+        onClick={() => handleClick('warning', "Warning", "sample message", "sample link")}>
         Warning
       </button>
+      </div>
     </div>
   );
 }
